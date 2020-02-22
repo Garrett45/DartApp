@@ -7,6 +7,7 @@ import 'LoginPage.dart';
 final databaseReference = FirebaseDatabase.instance.reference();
 
 void createRecord(int teamNumber, Map<String, dynamic> data) {
+  assert(name != null);
     databaseReference.child(teamNumber.toString()).child(name).set(data);
 }
 
