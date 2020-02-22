@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'CRUDOps.dart';
 
 class Input {
   bool haveAuto;
@@ -15,6 +16,16 @@ class Input {
     this.autoComment
   });
 
+  Map<String, dynamic> toMap() {
+    return {
+      'haveAuto': haveAuto,
+      'moveInAuto': moveInAuto,
+      'shootInAuto': shootInAuto,
+      'autoRating': autoRating,
+      'autoComment': autoComment
+    };
+  }
+
   save() {
     print('saving user using a web service');
   }
@@ -22,6 +33,13 @@ class Input {
 
 
 class HomeMaterial extends StatefulWidget {
+  const HomeMaterial({
+    Key key,
+    this.teamNumber,
+  }) : super(key: key);
+
+  final int teamNumber;
+
   @override
   _HomeMaterialState createState() => _HomeMaterialState();
 }
@@ -82,7 +100,6 @@ class _HomeMaterialState extends State<HomeMaterial> {
                           TextFormField(
                             decoration:
                             InputDecoration(labelText: 'Any additional comments about the team\'s auto?', ),
-                            keyboardType: TextInputType.number,
                             onSaved: (val) =>
                                 setState(() => _input.autoComment = val),
                           ),
@@ -101,6 +118,8 @@ class _HomeMaterialState extends State<HomeMaterial> {
                                       form.save();
                                       _input.save();
                                       _showDialog(context);
+
+                                      createRecord(widget.teamNumber, _input.toMap());
                                     }
                                   },
                                   child: Text('Save'))),

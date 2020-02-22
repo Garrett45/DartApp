@@ -19,10 +19,7 @@ class Team {
   //fromJson allows us to input Json objects once we isolate them from
   //the JsonArray
   factory Team.fromJson(Map<String, dynamic> json) {
-    return Team(
-      teamNumber: json['team_number'],
-      name: json['nickname']
-    );
+    return Team(teamNumber: json['team_number'], name: json['nickname']);
   }
 }
 
@@ -82,7 +79,7 @@ ListTile _tile(int teamNumber, String name, BuildContext context) => ListTile(
                 appBar: AppBar(
                   title: Text(teamNumber.toString()),
                 ),
-                body: HomeMaterial(),
+                body: HomeMaterial(teamNumber: teamNumber),
               );
             },
           ),
@@ -98,17 +95,22 @@ ListTile _tile(int teamNumber, String name, BuildContext context) => ListTile(
 class TeamListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<Team>>(
-      future: _fetchTeam(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          List<Team> data = snapshot.data;
-          return _teamListView(data);
-        } else if (snapshot.hasError) {
-          return Text("${snapshot.error}");
-        }
-        return CircularProgressIndicator();
-      },
-    );
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text('2225 Scouting App'),
+            ),
+            body: FutureBuilder<List<Team>>(
+              future: _fetchTeam(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List<Team> data = snapshot.data;
+                  return _teamListView(data);
+                } else if (snapshot.hasError) {
+                  return Text("${snapshot.error}");
+                }
+                return CircularProgressIndicator();
+              },
+            )));
   }
 }

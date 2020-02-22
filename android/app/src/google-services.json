@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "266032921958",
+    "firebase_url": "https://scouting-app-demo-6b860.firebaseio.com",
+    "project_id": "scouting-app-demo-6b860",
+    "storage_bucket": "scouting-app-demo-6b860.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266032921958:android:11be35d31c4014dc635ca7",
+        "android_client_info": {
+          "package_name": "com.example.pulling_api_bluealliance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266032921958-5mjgg7d1v00llfop81t52fu5366s22hv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACz-FuIyPxSCrzCFdN_bonLgMOaau4jC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266032921958-5mjgg7d1v00llfop81t52fu5366s22hv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
