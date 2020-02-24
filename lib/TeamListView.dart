@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'Form.dart';
 /*
  This file, as a whole, pulls the team numbers from the blue alliance API and creates
- the listview of them.
+ the list view of them.
  */
 
 //This class is how each team number is stored. Storing it as an object
@@ -59,7 +59,7 @@ ListView _teamListView(data) {
 }
 
 //This method is used by teamListView and is just all the style options for
-//each tile in the list view. It just declutters teamListView and seperates
+//each tile in the list view. It just de clutters teamListView and separates
 //out the creation of objects from the styling
 //I also put the button functionality here. Its where the boiler plate is
 //for every team page
@@ -79,7 +79,7 @@ ListTile _tile(int teamNumber, String name, BuildContext context) => ListTile(
                 appBar: AppBar(
                   title: Text(teamNumber.toString()),
                 ),
-                body: HomeMaterial(teamNumber: teamNumber),
+                body: CustomForm(teamNumber: teamNumber),
               );
             },
           ),

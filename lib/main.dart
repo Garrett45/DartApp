@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pulling_api_bluealliance/Form.dart';
 import 'TeamListView.dart';
-import 'CRUD.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'LoginPage.dart';
+import 'SignIn.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,6 +16,9 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, AsyncSnapshot<FirebaseUser> snapshot) {
           if (snapshot.hasData) {
             FirebaseUser user = snapshot.data; // this is your user instance
+            name = user.displayName;
+            email = user.email;
+            imageUrl = user.photoUrl;
             /// is because there is user already logged
             return TeamListView();
           }

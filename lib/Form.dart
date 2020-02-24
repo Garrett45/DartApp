@@ -32,8 +32,8 @@ class Input {
 }
 
 
-class HomeMaterial extends StatefulWidget {
-  const HomeMaterial({
+class CustomForm extends StatefulWidget {
+  const CustomForm({
     Key key,
     this.teamNumber,
   }) : super(key: key);
@@ -41,10 +41,10 @@ class HomeMaterial extends StatefulWidget {
   final int teamNumber;
 
   @override
-  _HomeMaterialState createState() => _HomeMaterialState();
+  _CustomFormState createState() => _CustomFormState();
 }
 
-class _HomeMaterialState extends State<HomeMaterial> {
+class _CustomFormState extends State<CustomForm> {
   final _formKey = GlobalKey<FormState>();
   final _input = Input();
 
